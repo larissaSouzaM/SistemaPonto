@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Ponto</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='JS/main.js') }}"></script>
+</head>
+<body class="bg-gradient-to-br from-pink-100 to-blue-50 font-sans">
+    <header class="fixed top-0 w-full bg-white shadow-md p-4 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-pink-600">Sistema de Ponto 🌸</h1>
+            <nav id="nav-menu" class="hidden md:flex space-x-4">
+                <a href="#dashboard" class="text-pink-600 hover:text-pink-800">Dashboard</a>
+                <a href="#profile" class="text-pink-600 hover:text-pink-800">Perfil</a>
+                <a href="#notifications" class="text-pink-600 hover:text-pink-800">Notificações</a>
+                <button id="logout-btn" class="bg-red-500 text-white p-2 rounded hover:bg-red-600">Sair</button>
+            </nav>
+            <button id="menu-toggle" class="md:hidden text-pink-600 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+        <nav id="mobile-menu" class="md:hidden hidden bg-white shadow-md p-4 absolute top-16 right-4 space-y-2">
+            <a href="#dashboard" class="block text-pink-600 hover:text-pink-800">Dashboard</a>
+            <a href="#profile" class="block text-pink-600 hover:text-pink-800">Perfil</a>
+            <a href="#notifications" class="block text-pink-600 hover:text-pink-800">Notificações</a>
+        </nav>
+    </header>
+
+    <div id="app" class="container mx-auto pt-20 pb-10 px-4">
+        <section id="welcome-section" class="bg-white rounded-lg p-6 shadow-md mb-6">
+            <h1 class="text-4xl font-bold text-center text-pink-600">Bem-vindo ao Sistema de Ponto 🌟</h1>
+            <p class="text-lg text-center mt-4 text-gray-700">Gerencie seus pontos e justificativas de forma prática e adorável!</p>
+            <div class="flex justify-center mt-6 space-x-4">
+                <button id="go-to-login-btn" class="bg-pink-500 text-white p-3 rounded-lg hover:bg-pink-600">Fazer Login</button>
+                <button id="info-btn" class="bg-purple-500 text-white p-3 rounded-lg hover:bg-purple-600">Sobre</button>
+            </div>
+        </section>
+
+        <section id="login-section" class="hidden max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-2xl font-bold mb-4 text-center">Login</h2>
+            <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-700">Usuário</label>
+                <input id="username" type="text" class="mt-1 block w-full p-2 border rounded" placeholder="Digite seu usuário">
+            </div>
+            <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-700">Senha</label>
+                <input id="password" type="password" class="mt-1 block w-full p-2 border rounded" placeholder="Digite sua senha">
+            </div>
+            <button id="login-btn" class="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600">Entrar</button>
+        </section>
+
+        <section id="employee-dashboard" class="hidden">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h2 class="text-2xl font-bold mb-4">Estatísticas Pessoais</h2>
+                    <canvas id="stats-chart"></canvas>
+                </div>
+                <div id="notification" class="hidden mb-4 p-4 rounded-lg bg-yellow-100 text-yellow-800"></div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h2 class="text-2xl font-bold mb-4">Registro de Ponto</h2>
+                    <button id="clock-in-btn" class="bg-green-500 text-white p-2 rounded hover:bg-green-600 mr-2">Bater Ponto</button>
+                    <button id="justify-absence-btn" class="bg-yellow-500 text-white p-2 rounded hover:bg-yellow-600">Justificar Falta</button>
+                    <h3 class="text-xl font-bold mt-6">Histórico de Pontos</h3>
+                    <p id="worked-hours" class="text-lg mt-2"></p>
+                    <ul id="employee-points" class="mt-2 space-y-2"></ul>
+                    <h3 class="text-xl font-bold mt-6">Justificativas</h3>
+                    <ul id="employee-justifications" class="mt-2 space-y-2"></ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="admin-dashboard" class="hidden">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h2 class="text-2xl font-bold mb-4">Estatísticas Gerais</h2>
+                    <canvas id="admin-stats-chart"></canvas>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h2 class="text-2xl font-bold mb-4">Gerenciamento</h2>
+                    <div class="mb-4 bg-pink-100 p-4 rounded-lg">
+                        <h3 class="text-xl font-bold">Total de Funcionários: <span id="employee-count">0</span> 👥</h3>
+                    </div>
+                    <div class="mb-4">
+                        <h3 class="text-xl font-bold">Adicionar Funcionário</h3>
+                        <input id="new-employee-name" type="text" class="p-2 border rounded" placeholder="Nome">
+                        <input id="new-employee-password" type="password" class="p-2 border rounded" placeholder="Senha">
+                        <button id="add-employee-btn" class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600">Adicionar</button>
+                    </div>
+                    <div class="mb-4">
+                        <h3 class="text-xl font-bold">Editar Funcionário</h3>
+                        <select id="edit-employee-select" class="p-2 border rounded"></select>
+                        <input id="edit-employee-password" type="password" class="p-2 border rounded" placeholder="Nova senha">
+                        <button id="edit-employee-btn" class="bg-purple-500 text-white p-2 rounded hover:bg-purple-600">Editar</button>
+                    </div>
+                    <h3 class="text-xl font-bold">Relatório de Pontos</h3>
+                    <select id="employee-select" class="p-2 border rounded mb-2"></select>
+                    <p id="admin-worked-hours" class="text-lg mt-2"></p>
+                    <ul id="admin-points" class="mt-2 space-y-2"></ul>
+                    <h3 class="text-xl font-bold mt-6">Justificativas Pendentes</h3>
+                    <ul id="admin-justifications" class="mt-2 space-y-2"></ul>
+                    <h3 class="text-xl font-bold mt-6">Logs de Atividades</h3>
+                    <ul id="admin-activity-logs" class="mt-2 space-y-2"></ul>
+                    <button id="admin-export-report-btn" class="bg-indigo-500 text-white p-2 rounded hover:bg-indigo-600 mt-4">Exportar Relatório</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="profile" class="hidden bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-2xl font-bold mb-4">Meu Perfil</h2>
+            <p id="user-info" class="text-lg"></p>
+            <button id="request-vacation-btn" class="bg-teal-500 text-white p-2 rounded hover:bg-teal-600 mt-4">Solicitar Férias</button>
+        </section>
+
+        <section id="notifications" class="hidden bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-2xl font-bold mb-4">Notificações</h2>
+            <ul id="notification-list" class="space-y-2"></ul>
+        </section>
+
+        <div id="justify-modal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center">
+            <div class="bg-white p-6 rounded-lg shadow-md max-w-md w-full">
+                <h3 class="text-xl font-bold mb-4">Justificar Falta</h3>
+                <textarea id="justify-text" class="w-full p-2 border rounded" placeholder="Digite a justificativa"></textarea>
+                <div class="mt-4 flex justify-end space-x-2">
+                    <button id="cancel-justify-btn" class="bg-gray-500 text-white p-2 rounded hover:bg-gray-600">Cancelar</button>
+                    <button id="submit-justify-btn" class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600">Enviar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>

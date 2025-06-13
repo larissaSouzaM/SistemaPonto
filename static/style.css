@@ -1,0 +1,149 @@
+body {
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    min-height: 100vh;
+    transition: all 0.3s ease;
+}
+
+#app {
+    min-height: calc(100vh - 80px);
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+header {
+    background: linear-gradient(135deg, #ff85a2, #e6f3fa);
+}
+
+nav a {
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    transition: background 0.3s ease;
+}
+
+nav a:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+#mobile-menu {
+    border-radius: 10px;
+}
+
+#welcome-section, #login-section, #employee-dashboard, #admin-dashboard, #profile, #notifications {
+    background: #fff5f7;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    margin-bottom: 1.5rem;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(-10px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+button {
+    background: linear-gradient(135deg, #ff85a2, #ffbcd1);
+    border: none;
+    border-radius: 12px;
+    padding: 0.75rem 1.5rem;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 133, 162, 0.4);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+input, textarea, select {
+    border: 2px solid #ffd1dc;
+    border-radius: 12px;
+    padding: 0.75rem;
+    background: #fff0f5;
+    transition: all 0.3s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: #ff85a2;
+    box-shadow: 0 0 10px rgba(255, 133, 162, 0.3);
+}
+
+ul li {
+    background: #e6f3fa;
+    border: 2px solid #d1e7f0;
+    border-radius: 10px;
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+    transition: transform 0.2s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+ul li:hover {
+    transform: scale(1.02);
+}
+
+#notification {
+    border-left: 5px solid #facc15;
+}
+
+canvas {
+    max-width: 100%;
+    height: auto;
+}
+
+button.bg-green-500 {
+    background: linear-gradient(135deg, #66d9a1, #a3e4c5);
+}
+
+button.bg-green-500:hover {
+    background: linear-gradient(135deg, #55c78f, #92d3b4);
+}
+
+button.bg-red-500 {
+    background: linear-gradient(135deg, #ff6b6b, #ff9a9a);
+}
+
+button.bg-red-500:hover {
+    background: linear-gradient(135deg, #ff5555, #ff8888);
+}
+
+button.bg-purple-500 {
+    background: linear-gradient(135deg, #a78bfa, #c3a7fa);
+}
+
+button.bg-purple-500:hover {
+    background: linear-gradient(135deg, #8b5cf6, #b08bfa);
+}
+
+button.bg-teal-500 {
+    background: linear-gradient(135deg, #4db6ac, #80cbc4);
+}
+
+button.bg-teal-500:hover {
+    background: linear-gradient(135deg, #26a69a, #4db6ac);
+}
+
+button.bg-indigo-500 {
+    background: linear-gradient(135deg, #5c6bc0, #7986cb);
+}
+
+button.bg-indigo-500:hover {
+    background: linear-gradient(135deg, #3f51b5, #5c6bc0);
+}
