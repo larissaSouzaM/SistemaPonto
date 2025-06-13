@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Bater Ponto</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+</head>
+<body>
+    <div class="dashboard-main">
+        <h2>Bater Ponto</h2>
+        <form method="post">
+            <button type="submit" class="dashboard-btn">Registrar Ponto</button>
+        </form>
+        <a href="{{ url_for('routes.dashboard') }}" class="dashboard-btn" style="margin-top:2rem;">Voltar ao Dashboard</a>
+    </div>
+</body>
+</html>

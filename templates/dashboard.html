@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - Sistema de Ponto</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+</head>
+<body>
+    <header class="dashboard-header">
+        <h1>Sistema de Ponto 🌸</h1>
+        <a href="{{ url_for('routes.index') }}" class="btn-sair">Sair</a>
+    </header>
+    <main class="dashboard-main">
+        <h2>Bem-vindo ao Dashboard!</h2>
+        <div class="dashboard-buttons">
+            <a href="{{ url_for('routes.ponto') }}" class="dashboard-btn">Bater Ponto</a>
+            <a href="{{ url_for('routes.justificativas') }}" class="dashboard-btn">Justificativas</a>
+            <a href="{{ url_for('routes.relatorios') }}" class="dashboard-btn">Relatórios</a>
+        </div>
+    </main>
+</body>
+</html>
