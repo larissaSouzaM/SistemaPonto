@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Sistema de Ponto</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+</head>
+<body>
+    <div id="app">
+        <section id="login-section">
+            <h2>Login</h2>
+            {% if error %}
+                <div class="mb-4 p-2 bg-red-100 text-red-700 rounded">{{ error }}</div>
+            {% endif %}
+            <form id="login-form" method="POST">
+                <div class="mb-4">
+                    <label>Usuário</label>
+                    <input name="username" type="text" placeholder="Digite seu usuário" required>
+                </div>
+                <div class="mb-6">
+                    <label>Senha</label>
+                    <input name="password" type="password" placeholder="Digite sua senha" required>
+                </div>
+                <button type="submit">Entrar</button>
+            </form>
+            <a href="{{ url_for('routes.index') }}" class="btn-voltar">Voltar</a>
+        </section>
+    </div>
+    <script src="{{ url_for('static', filename='js/login.js') }}"></script>
+</body>
+</html>

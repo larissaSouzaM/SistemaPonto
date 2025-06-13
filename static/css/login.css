@@ -1,0 +1,150 @@
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #fce4ec 0%, #e3f2fd 100%);
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#login-section {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px 0 rgba(255, 133, 162, 0.15), 0 1.5px 8px 0 rgba(99, 102, 241, 0.08);
+    padding: 2.5rem 2rem 2rem 2rem;
+    width: 100%;
+    max-width: 400px;
+    transition: box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    animation: fadeIn 0.7s;
+    box-sizing: border-box;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(-20px);}
+    100% { opacity: 1; transform: translateY(0);}
+}
+
+#login-section:hover {
+    box-shadow: 0 12px 40px 0 rgba(255, 133, 162, 0.22), 0 2px 12px 0 rgba(99, 102, 241, 0.10);
+}
+
+h2 {
+    color: #ec4899;
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    text-align: center;
+    letter-spacing: -1px;
+    background: linear-gradient(90deg, #ec4899 0%, #6366f1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+label {
+    color: #374151;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    display: block;
+    letter-spacing: 0.01em;
+}
+
+input[type="text"], input[type="password"] {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 0.85rem 1.1rem;
+    border: 2px solid #ffd1dc;
+    border-radius: 14px;
+    background: #fff0f5;
+    margin-bottom: 0.5rem;
+    font-size: 1.08rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    color: #374151;
+    box-shadow: 0 1px 3px rgba(236, 72, 153, 0.04);
+    display: block;
+}
+
+input[type="text"]:focus, input[type="password"]:focus {
+    border-color: #ec4899;
+    outline: none;
+    background: #fff;
+    box-shadow: 0 0 0 2px #ec489933;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 1rem 0;
+    background: linear-gradient(90deg, #ec4899 0%, #6366f1 100%);
+    color: #fff;
+    font-size: 1.15rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px rgba(236, 72, 153, 0.08);
+    letter-spacing: 0.02em;
+    margin-top: 0.5rem;
+}
+
+button[type="submit"]:hover, button[type="submit"]:focus {
+    background: linear-gradient(90deg, #6366f1 0%, #ec4899 100%);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 4px 16px rgba(99, 102, 241, 0.12);
+}
+
+.mb-4, .mb-6 {
+    margin-bottom: 1.5rem !important;
+}
+
+.bg-red-100 {
+    background: #fee2e2;
+}
+
+.text-red-700 {
+    color: #b91c1c;
+}
+
+.rounded {
+    border-radius: 12px;
+}
+
+.btn-voltar {
+    display: inline-block;
+    margin-bottom: 1.5rem;
+    padding: 0.7rem 1.5rem;
+    background: linear-gradient(90deg, #6366f1 0%, #ec4899 100%);
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(99, 102, 241, 0.08);
+    transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    text-align: center;
+}
+
+.btn-voltar:hover, .btn-voltar:focus {
+    background: linear-gradient(90deg, #ec4899 0%, #6366f1 100%);
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 4px 16px rgba(236, 72, 153, 0.12);
+}
+
+@media (max-width: 500px) {
+    #login-section {
+        padding: 1.5rem 0.5rem;
+        max-width: 95vw;
+    }
+    h2 {
+        font-size: 1.5rem;
+    }
+    button[type="submit"] {
+        font-size: 1rem;
+    }
+}

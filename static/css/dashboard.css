@@ -1,0 +1,89 @@
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #fce4ec 0%, #e3f2fd 100%);
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+}
+
+.dashboard-header {
+    background: linear-gradient(90deg, #ff85a2 0%, #e6f3fa 100%);
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 16px rgba(255, 133, 162, 0.08);
+}
+
+.dashboard-header h1 {
+    color: #ec4899;
+    font-size: 2rem;
+    font-weight: 800;
+    margin: 0;
+}
+
+.btn-sair {
+    background: linear-gradient(90deg, #6366f1 0%, #ec4899 100%);
+    color: #fff;
+    padding: 0.7rem 1.5rem;
+    border-radius: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.1s;
+}
+
+.btn-sair:hover {
+    background: linear-gradient(90deg, #ec4899 0%, #6366f1 100%);
+    transform: translateY(-2px) scale(1.03);
+}
+
+.dashboard-main {
+    max-width: 500px;
+    margin: 3rem auto;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px 0 rgba(255, 133, 162, 0.10);
+    padding: 2.5rem 2rem;
+    text-align: center;
+}
+
+.dashboard-main h2 {
+    color: #ec4899;
+    font-size: 1.7rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+.dashboard-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.dashboard-btn {
+    background: linear-gradient(90deg, #ec4899 0%, #6366f1 100%);
+    color: #fff;
+    padding: 1rem 0;
+    border-radius: 14px;
+    font-size: 1.15rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px rgba(236, 72, 153, 0.08);
+    letter-spacing: 0.02em;
+}
+
+.dashboard-btn:hover {
+    background: linear-gradient(90deg, #6366f1 0%, #ec4899 100%);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 4px 16px rgba(99, 102, 241, 0.12);
+}
+
+@media (max-width: 600px) {
+    .dashboard-main {
+        padding: 1.2rem 0.5rem;
+        max-width: 98vw;
+    }
+    .dashboard-header {
+        padding: 1rem 0.5rem;
+    }
+}
