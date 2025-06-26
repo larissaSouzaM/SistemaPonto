@@ -8,8 +8,24 @@
 <body>
     <div class="dashboard-main">
         <h2>Relatórios</h2>
-        <!-- Adicione aqui a geração/visualização de relatórios -->
-        <a href="{{ url_for('routes.dashboard') }}" class="dashboard-btn" style="margin-top:2rem;">Voltar ao Dashboard</a>
+
+        <!-- Área de conteúdo com exemplo de relatório -->
+        <div class="relatorio-card">
+            <h3>Relatório de Pontos</h3>
+            <p>Funcionário: João da Silva</p>
+            <p>Data: 25/06/2025</p>
+            <p>Status: ✅ Registrado</p>
+        </div>
+
+        <!-- Outro exemplo -->
+        <div class="relatorio-card">
+            <h3>Relatório de Faltas</h3>
+            <p>Funcionário: Maria Souza</p>
+            <p>Data: 24/06/2025</p>
+            <p>Status: ❌ Falta não justificada</p>
+        </div>
+
+        <a href="{{ url_for('routes.dashboard') }}" class="dashboard-btn" style="margin-top: 2rem;">Voltar ao Dashboard</a>
     </div>
 </body>
 </html>

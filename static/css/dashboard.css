@@ -87,3 +87,20 @@ body {
         padding: 1rem 0.5rem;
     }
 }
+
+.relatorio-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    text-align: left;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.relatorio-card h3 {
+    margin-top: 0;
+    color: #333;
+}

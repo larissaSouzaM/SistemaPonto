@@ -8,8 +8,26 @@
 <body>
     <div class="dashboard-main">
         <h2>Justificativas</h2>
-        <!-- Adicione aqui o formulário/listagem de justificativas -->
-        <a href="{{ url_for('routes.dashboard') }}" class="dashboard-btn" style="margin-top:2rem;">Voltar ao Dashboard</a>
+        <form action="{{ url_for('routes.enviar_justificativa') }}" method="POST" class="form-justificativa">
+            <div>
+                <label for="data">Data:</label>
+                <input type="date" name="data" id="data" required>
+            </div>
+            <div>
+                <label for="motivo">Motivo:</label>
+                <textarea name="motivo" id="motivo" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="dashboard-btn" style="margin-top: 1rem;">Enviar Justificativa</button>
+        </form>
+        
+        <div class="justificativas-content">
+            
+            
+            <!-- Aqui você pode adicionar a listagem ou formulário de justificativas futuramente -->
+            <p></p>
+        </div>
+
+        <a href="{{ url_for('routes.dashboard') }}" class="dashboard-btn" style="margin-top: 2rem;">Voltar ao Dashboard</a>
     </div>
 </body>
 </html>

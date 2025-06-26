@@ -44,3 +44,17 @@ def relatorios():
     if 'user_id' not in session:
         return redirect(url_for('routes.login'))
     return render_template('relatorios.html')
+
+
+@bp.route('/enviar_justificativa', methods=['POST'])
+def enviar_justificativa():
+    if 'user_id' not in session:
+        return redirect(url_for('routes.login'))
+
+    data = request.form.get('data')
+    motivo = request.form.get('motivo')
+
+    print(f"Justificativa recebida: Data={data}, Motivo={motivo}")
+    # Aqui você pode salvar no banco se quiser
+
+    return redirect(url_for('routes.justificativas'))
